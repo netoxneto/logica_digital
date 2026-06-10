@@ -1,4 +1,4 @@
-"""# 💻 Lógica Digital - Plataforma Interativa
+## 💻 Lógica Digital - Plataforma Interativa
 
 Uma plataforma educacional interativa estruturada para facilitar a aprendizagem e o ensino de Arquitetura de Computadores e Lógica Digital. O projeto está organizado de forma modular para apresentar conceitos técnicos de computação através de uma interface visual, limpa e prática.
 

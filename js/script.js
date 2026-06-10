@@ -8,8 +8,8 @@ const GATES = [
     inputs: 2,
     formula: 'S = A · B',
     desc: 'Saída 1 somente quando TODAS as entradas são 1. Símbolo: ·',
-    truth: [[0,0,0],[0,1,0],[1,0,0],[1,1,1]],
-    fn: (a,b) => a & b,
+    truth: [[0, 0, 0], [0, 1, 0], [1, 0, 0], [1, 1, 1]],
+    fn: (a, b) => a & b,
     svg: `<path d="M20 20 L20 80 L60 80 Q100 80 100 50 Q100 20 60 20 Z" fill="none" stroke="#00d4ff" stroke-width="2.5"/>
           <line x1="0" y1="35" x2="20" y2="35" stroke="#00d4ff" stroke-width="2"/>
           <line x1="0" y1="65" x2="20" y2="65" stroke="#00d4ff" stroke-width="2"/>
@@ -21,8 +21,8 @@ const GATES = [
     inputs: 2,
     formula: 'S = A + B',
     desc: 'Saída 1 quando PELO MENOS UMA entrada é 1. Símbolo: +',
-    truth: [[0,0,0],[0,1,1],[1,0,1],[1,1,1]],
-    fn: (a,b) => a | b,
+    truth: [[0, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 1]],
+    fn: (a, b) => a | b,
     svg: `<path d="M15 20 Q35 50 15 80 Q50 80 70 80 Q105 65 105 50 Q105 35 70 20 Q50 20 15 20 Z" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
           <line x1="0" y1="35" x2="22" y2="35" stroke="#7c3aed" stroke-width="2"/>
           <line x1="0" y1="65" x2="22" y2="65" stroke="#7c3aed" stroke-width="2"/>
@@ -34,7 +34,7 @@ const GATES = [
     inputs: 1,
     formula: 'S = Ā',
     desc: 'Inverte a entrada. 0→1, 1→0. Também chamada de INVERSOR.',
-    truth: [[0,1],[1,0]],
+    truth: [[0, 1], [1, 0]],
     fn: (a) => a ^ 1,
     svg: `<polygon points="20,20 90,50 20,80" fill="none" stroke="#10b981" stroke-width="2.5"/>
           <circle cx="95" cy="50" r="6" fill="none" stroke="#10b981" stroke-width="2.5"/>
@@ -46,8 +46,8 @@ const GATES = [
     inputs: 2,
     formula: 'S = A · B̄',
     desc: 'AND negado. Universal: qualquer circuito pode ser feito só com NANDs!',
-    truth: [[0,0,1],[0,1,1],[1,0,1],[1,1,0]],
-    fn: (a,b) => (a & b) ^ 1,
+    truth: [[0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 0]],
+    fn: (a, b) => (a & b) ^ 1,
     svg: `<path d="M20 20 L20 80 L60 80 Q100 80 100 50 Q100 20 60 20 Z" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
           <circle cx="106" cy="50" r="6" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
           <line x1="0" y1="35" x2="20" y2="35" stroke="#f59e0b" stroke-width="2"/>
@@ -60,8 +60,8 @@ const GATES = [
     inputs: 2,
     formula: 'S = A + B̄',
     desc: 'OR negado. Também universal! NOR + NOR = qualquer função.',
-    truth: [[0,0,1],[0,1,0],[1,0,0],[1,1,0]],
-    fn: (a,b) => (a | b) ^ 1,
+    truth: [[0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 0]],
+    fn: (a, b) => (a | b) ^ 1,
     svg: `<path d="M15 20 Q35 50 15 80 Q50 80 70 80 Q105 65 105 50 Q105 35 70 20 Q50 20 15 20 Z" fill="none" stroke="#ec4899" stroke-width="2.5"/>
           <circle cx="111" cy="50" r="6" fill="none" stroke="#ec4899" stroke-width="2.5"/>
           <line x1="0" y1="35" x2="22" y2="35" stroke="#ec4899" stroke-width="2"/>
@@ -74,8 +74,8 @@ const GATES = [
     inputs: 2,
     formula: 'S = A ⊕ B',
     desc: 'OU Exclusivo. Saída 1 quando as entradas são DIFERENTES.',
-    truth: [[0,0,0],[0,1,1],[1,0,1],[1,1,0]],
-    fn: (a,b) => a ^ b,
+    truth: [[0, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 0]],
+    fn: (a, b) => a ^ b,
     svg: `<path d="M15 20 Q35 50 15 80 Q50 80 70 80 Q105 65 105 50 Q105 35 70 20 Q50 20 15 20 Z" fill="none" stroke="#06b6d4" stroke-width="2.5"/>
           <path d="M8 20 Q28 50 8 80" fill="none" stroke="#06b6d4" stroke-width="2.5"/>
           <line x1="0" y1="35" x2="25" y2="35" stroke="#06b6d4" stroke-width="2"/>
@@ -88,8 +88,8 @@ const GATES = [
     inputs: 2,
     formula: 'S = A ⊙ B',
     desc: 'XOR negado. Saída 1 quando as entradas são IGUAIS.',
-    truth: [[0,0,1],[0,1,0],[1,0,0],[1,1,1]],
-    fn: (a,b) => (a ^ b) ^ 1,
+    truth: [[0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1]],
+    fn: (a, b) => (a ^ b) ^ 1,
     svg: `<path d="M15 20 Q35 50 15 80 Q50 80 70 80 Q105 65 105 50 Q105 35 70 20 Q50 20 15 20 Z" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
           <path d="M8 20 Q28 50 8 80" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
           <circle cx="111" cy="50" r="6" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
@@ -141,7 +141,7 @@ let quizScore = 0;
 // ═══════════════════════════════════════════════════════════
 // NAV
 // ═══════════════════════════════════════════════════════════
-function showSection(){}
+function showSection() { }
 
 function updateProgress(step) {
   const pct = (step / 6) * 100;
@@ -195,9 +195,9 @@ function updateBitCalc() {
 function initGateCards() {
   const container = document.getElementById('gates-cards');
   GATES.forEach((g, i) => {
-    const headers = g.inputs === 1 ? ['A','S'] : ['A','B','S'];
+    const headers = g.inputs === 1 ? ['A', 'S'] : ['A', 'B', 'S'];
     const rows = g.truth.map(row => {
-      const cells = row.map((v, ci) => `<td class="${v===1?'val-1':'val-0'}">${v}</td>`).join('');
+      const cells = row.map((v, ci) => `<td class="${v === 1 ? 'val-1' : 'val-0'}">${v}</td>`).join('');
       return `<tr>${cells}</tr>`;
     }).join('');
 
@@ -212,7 +212,7 @@ function initGateCards() {
         </div>
         <p style="margin-bottom:16px">${g.desc}</p>
         <table class="truth-table">
-          <tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr>
+          <tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>
           ${rows}
         </table>
       </div>
@@ -254,8 +254,8 @@ function renderInputs() {
     div.className = 'input-toggle';
     div.innerHTML = `
       <span class="input-label" style="color:${g.color}">${labels[i]}</span>
-      <button class="toggle-btn ${inputValues[i]?'on':''}" id="sim-inp-${i}" onclick="toggleInput(${i})"></button>
-      <span class="bit-display ${inputValues[i]?'val-1':'val-0'}" id="sim-bit-${i}">${inputValues[i]}</span>
+      <button class="toggle-btn ${inputValues[i] ? 'on' : ''}" id="sim-inp-${i}" onclick="toggleInput(${i})"></button>
+      <span class="bit-display ${inputValues[i] ? 'val-1' : 'val-0'}" id="sim-bit-${i}">${inputValues[i]}</span>
     `;
     panel.appendChild(div);
   }
@@ -265,7 +265,7 @@ function toggleInput(i) {
   inputValues[i] ^= 1;
   document.getElementById(`sim-inp-${i}`).classList.toggle('on', inputValues[i] === 1);
   document.getElementById(`sim-bit-${i}`).textContent = inputValues[i];
-  document.getElementById(`sim-bit-${i}`).className = `bit-display ${inputValues[i]?'val-1':'val-0'}`;
+  document.getElementById(`sim-bit-${i}`).className = `bit-display ${inputValues[i] ? 'val-1' : 'val-0'}`;
   updateSimulator();
 }
 
@@ -282,15 +282,15 @@ function updateSimulator() {
 
   // Truth table
   const table = document.getElementById('truth-table-dyn');
-  const headers = g.inputs === 1 ? ['A','S'] : ['A','B','S'];
+  const headers = g.inputs === 1 ? ['A', 'S'] : ['A', 'B', 'S'];
   const currentRow = inputValues.join(',');
-  let html = `<tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr>`;
+  let html = `<tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
   g.truth.forEach(row => {
     const isCurrentRow = row.slice(0, g.inputs).join(',') === currentRow;
     const style = isCurrentRow ? `style="background:rgba(0,212,255,0.1)"` : '';
-    const cells = row.map((v,ci) => {
+    const cells = row.map((v, ci) => {
       const isLast = ci === row.length - 1;
-      return `<td class="${v===1?'val-1':'val-0'}">${v}${isCurrentRow && isLast ? ' ◀' : ''}</td>`;
+      return `<td class="${v === 1 ? 'val-1' : 'val-0'}">${v}${isCurrentRow && isLast ? ' ◀' : ''}</td>`;
     }).join('');
     html += `<tr ${style}>${cells}</tr>`;
   });
@@ -327,9 +327,9 @@ function evaluateExpr() {
     const result = eval(jsExpr) ? 1 : 0;
     const div = document.getElementById('eval-result');
     div.style.display = 'block';
-    div.innerHTML = `<span style="color:var(--muted);font-size:0.8rem">Resultado: </span><span style="color:${result?'var(--accent3)':'var(--red)'}">${result}</span>
+    div.innerHTML = `<span style="color:var(--muted);font-size:0.8rem">Resultado: </span><span style="color:${result ? 'var(--accent3)' : 'var(--red)'}">${result}</span>
       <span style="color:var(--muted);font-size:0.75rem;margin-left:16px">(A=${A}, B=${B}, C=${C})</span>`;
-  } catch(e) {
+  } catch (e) {
     const div = document.getElementById('eval-result');
     div.style.display = 'block';
     div.innerHTML = `<span style="color:var(--red)">Expressão inválida. Use: AND, OR, NOT, parênteses.</span>`;
@@ -342,8 +342,8 @@ function updateDeMorgan() {
   const lhs1 = ((a1 & b1) ^ 1);
   const rhs1 = ((a1 ^ 1) | (b1 ^ 1));
   document.getElementById('dm1result').innerHTML =
-    `NOT(${a1} AND ${b1}) = NOT(${a1&b1}) = <strong style="color:var(--accent)">${lhs1}</strong><br>
-     NOT ${a1} OR NOT ${b1} = ${a1^1} OR ${b1^1} = <strong style="color:var(--accent2)">${rhs1}</strong><br>
+    `NOT(${a1} AND ${b1}) = NOT(${a1 & b1}) = <strong style="color:var(--accent)">${lhs1}</strong><br>
+     NOT ${a1} OR NOT ${b1} = ${a1 ^ 1} OR ${b1 ^ 1} = <strong style="color:var(--accent2)">${rhs1}</strong><br>
      <span style="color:var(--accent3)">✓ ${lhs1 === rhs1 ? 'IGUAIS — teorema confirmado!' : 'Diferente?? Isso não deveria acontecer.'}</span>`;
 
   const a2 = document.getElementById('dm2a').classList.contains('on') ? 1 : 0;
@@ -351,8 +351,8 @@ function updateDeMorgan() {
   const lhs2 = ((a2 | b2) ^ 1);
   const rhs2 = ((a2 ^ 1) & (b2 ^ 1));
   document.getElementById('dm2result').innerHTML =
-    `NOT(${a2} OR ${b2}) = NOT(${a2|b2}) = <strong style="color:var(--accent)">${lhs2}</strong><br>
-     NOT ${a2} AND NOT ${b2} = ${a2^1} AND ${b2^1} = <strong style="color:var(--accent2)">${rhs2}</strong><br>
+    `NOT(${a2} OR ${b2}) = NOT(${a2 | b2}) = <strong style="color:var(--accent)">${lhs2}</strong><br>
+     NOT ${a2} AND NOT ${b2} = ${a2 ^ 1} AND ${b2 ^ 1} = <strong style="color:var(--accent2)">${rhs2}</strong><br>
      <span style="color:var(--accent3)">✓ ${lhs2 === rhs2 ? 'IGUAIS — teorema confirmado!' : 'Diferente.'}</span>`;
 }
 
@@ -365,7 +365,7 @@ function updateAdders() {
   const hSum = haA ^ haB, hCarry = haA & haB;
   document.getElementById('ha-sum').textContent = hSum;
   document.getElementById('ha-carry').textContent = hCarry;
-  document.getElementById('ha-result').textContent = `${haA} + ${haB} = ${hCarry}${hSum}₂ (${haA+haB})`;
+  document.getElementById('ha-result').textContent = `${haA} + ${haB} = ${hCarry}${hSum}₂ (${haA + haB})`;
 
   const faA = document.getElementById('fa-a').classList.contains('on') ? 1 : 0;
   const faB = document.getElementById('fa-b').classList.contains('on') ? 1 : 0;
@@ -378,15 +378,15 @@ function updateAdders() {
 }
 
 // Make toggle buttons for adders/demorgan work
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
   const btn = e.target.closest('.toggle-btn');
   if (!btn) return;
   const id = btn.id;
-  if (['ha-a','ha-b','fa-a','fa-b','fa-cin'].includes(id)) {
+  if (['ha-a', 'ha-b', 'fa-a', 'fa-b', 'fa-cin'].includes(id)) {
     btn.classList.toggle('on');
     updateAdders();
   }
-  if (['dm1a','dm1b','dm2a','dm2b'].includes(id)) {
+  if (['dm1a', 'dm1b', 'dm2a', 'dm2b'].includes(id)) {
     btn.classList.toggle('on');
     updateDeMorgan();
   }
@@ -414,18 +414,18 @@ function initMux() {
 }
 
 function updateMux() {
-  const d = [0,1,2,3].map(i => document.getElementById(`mux-d${i}`)?.classList.contains('on') ? 1 : 0);
+  const d = [0, 1, 2, 3].map(i => document.getElementById(`mux-d${i}`)?.classList.contains('on') ? 1 : 0);
   const s1 = document.getElementById('mux-s1')?.classList.contains('on') ? 1 : 0;
   const s0 = document.getElementById('mux-s0')?.classList.contains('on') ? 1 : 0;
   const sel = s1 * 2 + s0;
   const out = d[sel];
   document.getElementById('mux-result').innerHTML =
     `<div style="color:var(--muted);font-size:0.75rem;margin-bottom:6px">S1S0 = ${s1}${s0} → seleciona D${sel}</div>
-     <div style="color:${out?'var(--accent3)':'var(--red)'};font-size:1.5rem;font-weight:700">${out}</div>`;
+     <div style="color:${out ? 'var(--accent3)' : 'var(--red)'};font-size:1.5rem;font-weight:700">${out}</div>`;
 }
 
 // Mux toggle clicks
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
   const btn = e.target.closest('.toggle-btn');
   if (!btn) return;
   const id = btn.id;
@@ -448,11 +448,11 @@ function triggerFlipFlop() {
   document.getElementById('ff-qbar').textContent = ffQ ^ 1;
   document.getElementById('ff-status').textContent = status;
   document.getElementById('ff-q').style.color = ffQ ? 'var(--accent3)' : 'var(--red)';
-  document.getElementById('ff-qbar').style.color = (ffQ^1) ? 'var(--accent3)' : 'var(--red)';
+  document.getElementById('ff-qbar').style.color = (ffQ ^ 1) ? 'var(--accent3)' : 'var(--red)';
 }
 
 // SR toggle clicks
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
   const btn = e.target.closest('#sr-s, #sr-r');
   if (btn) btn.classList.toggle('on');
 });
@@ -472,12 +472,12 @@ function initQuiz() {
     div.className = 'quiz-question';
     div.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <span class="chip chip-blue">${String(qi+1).padStart(2,'0')}</span>
+        <span class="chip chip-blue">${String(qi + 1).padStart(2, '0')}</span>
         <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted)" id="q-pts-${qi}"></span>
       </div>
       <div class="quiz-q-text">${q.q}</div>
       <div class="quiz-options" id="opts-${qi}">
-        ${q.opts.map((o,oi) => `<button class="quiz-opt" onclick="answerQuiz(${qi},${oi})">${o}</button>`).join('')}
+        ${q.opts.map((o, oi) => `<button class="quiz-opt" onclick="answerQuiz(${qi},${oi})">${o}</button>`).join('')}
       </div>
       <div class="quiz-feedback" id="fb-${qi}"></div>
     `;
@@ -498,7 +498,7 @@ function answerQuiz(qi, oi) {
     else if (i === oi && !correct) btn.classList.add('wrong');
   });
   const fb = document.getElementById(`fb-${qi}`);
-  fb.className = `quiz-feedback show ${correct?'ok':'err'}`;
+  fb.className = `quiz-feedback show ${correct ? 'ok' : 'err'}`;
   fb.innerHTML = (correct ? '✓ Correto! ' : '✗ Incorreto. ') + q.exp;
   document.getElementById(`q-pts-${qi}`).textContent = correct ? '+1 ponto' : '0 pontos';
   document.getElementById(`q-pts-${qi}`).style.color = correct ? 'var(--accent3)' : 'var(--red)';
@@ -511,9 +511,9 @@ function answerQuiz(qi, oi) {
       const pct = quizScore / QUIZ_QUESTIONS.length;
       document.getElementById('score-msg').textContent =
         pct >= 0.9 ? '🎉 Excelente! Você domina lógica digital!' :
-        pct >= 0.7 ? '👍 Muito bom! Continue praticando.' :
-        pct >= 0.5 ? '📚 Razoável. Revise as seções anteriores.' :
-        '🔄 Continue estudando e tente novamente!';
+          pct >= 0.7 ? '👍 Muito bom! Continue praticando.' :
+            pct >= 0.5 ? '📚 Razoável. Revise as seções anteriores.' :
+              '🔄 Continue estudando e tente novamente!';
     }, 500);
   }
 }
