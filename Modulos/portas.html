@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lógica Digital — Guia Interativo</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="progress-container" id="progress"></div>
+
+<header>
+  <div class="tag">CIÊNCIA DA COMPUTAÇÃO</div>
+  <h1>Lógica Digital</h1>
+  <p>Portas lógicas · Álgebra Booleana · Circuitos Digitais · Tabelas Verdade</p>
+</header>
+
+<nav id="navbar">
+  <a href="../index.html" class="nav-link">01 / FUNDAMENTOS</a>
+  <a href="portas.html" class="nav-link active">02 / PORTAS LÓGICAS</a>
+  <a href="simulador.html" class="nav-link">03 / SIMULADOR</a>
+  <a href="algebra.html" class="nav-link">04 / ÁLGEBRA BOOLEANA</a>
+  <a href="circuitos.html" class="nav-link">05 / CIRCUITOS</a>
+  <a href="quiz.html" class="nav-link">06 / QUIZ</a>
+</nav>
+
+<!-- ===================== SEÇÃO 1: FUNDAMENTOS ===================== -->
+<section class="section" id="fundamentos">
+  <p class="tag" style="font-size:11px; margin-bottom:8px;">MÓDULO 01</p>
+  <h2 class="section-title">Fundamentos da Lógica Digital</h2>
+  <p class="section-sub">Tudo começa com dois estados. Zero ou um. Falso ou verdadeiro.</p>
+
+  <div class="info-box">
+    <strong>O que é lógica digital?</strong><br>
+    Computadores processam informações usando apenas dois estados elétricos: <strong>LOW (0V) = 0</strong> e <strong>HIGH (5V/3.3V) = 1</strong>. Toda operação lógica — desde somar dois números até rodar um jogo — é construída sobre combinações dessas portas simples.
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <span class="gate-symbol" style="color:var(--accent)">0 1</span>
+      <h3>Sistema Binário</h3>
+      <p>Base-2: apenas dígitos 0 e 1 (bits). Um grupo de 8 bits = 1 byte. Toda informação digital é representada assim.</p>
+      <br>
+      <div style="font-family:var(--mono);font-size:0.85rem;color:var(--muted)">
+        0 = FALSO = LOW<br>
+        1 = VERDADEIRO = HIGH
+      </div>
+    </div>
+    <div class="card">
+      <span class="gate-symbol" style="color:var(--accent2)">∧ ∨ ¬</span>
+      <h3>Operadores Booleanos</h3>
+      <p>Três operações básicas: <strong>AND (∧)</strong>, <strong>OR (∨)</strong> e <strong>NOT (¬)</strong>. Qualquer função lógica pode ser construída com elas.</p>
+    </div>
+    <div class="card">
+      <span class="gate-symbol" style="color:var(--accent3)">⬛</span>
+      <h3>Tabela Verdade</h3>
+      <p>Lista todas as combinações possíveis de entradas e a saída correspondente. Para N entradas, existem 2ᴺ linhas.</p>
+    </div>
+    <div class="card">
+      <span class="gate-symbol" style="color:var(--accent4)">⊕</span>
+      <h3>Porta Lógica</h3>
+      <p>Circuito eletrônico que implementa uma operação booleana. É o bloco básico de qualquer chip ou processador.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:40px">
+    <h3 style="margin-bottom:16px; font-size:1.1rem; color:var(--muted); font-family:var(--mono); letter-spacing:2px; font-size:0.8rem;">CONVERSÃO BINÁRIO → DECIMAL</h3>
+    <div class="simulator">
+      <p class="sim-title">// CALCULADORA INTERATIVA</p>
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:20px">
+        <span style="font-family:var(--mono); color:var(--muted); font-size:0.8rem;">BINÁRIO:</span>
+        <div id="bit-toggles" style="display:flex; gap:8px; flex-wrap:wrap">
+          <!-- bits gerados via JS -->
+        </div>
+      </div>
+      <div style="font-family:var(--mono); font-size:2rem; color:var(--accent); font-weight:700" id="decimal-result">0</div>
+      <div style="font-family:var(--mono); font-size:0.8rem; color:var(--muted); margin-top:8px" id="binary-string">00000000</div>
+      <div style="font-family:var(--mono); font-size:0.8rem; color:var(--accent2); margin-top:4px" id="hex-string">0x00</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SEÇÃO 2: PORTAS ===================== -->
+<section class="section active" id="portas">
+  <p class="tag" style="font-size:11px; margin-bottom:8px;">MÓDULO 02</p>
+  <h2 class="section-title">As 7 Portas Lógicas</h2>
+  <p class="section-sub">Cada porta implementa uma operação booleana diferente.</p>
+
+  <div class="cards-grid" id="gates-cards">
+    <!-- gerado via JS -->
+  </div>
+</section>
+
+<!-- ===================== SEÇÃO 3: SIMULADOR ===================== -->
+<section class="section" id="simulador">
+  <p class="tag" style="font-size:11px; margin-bottom:8px;">MÓDULO 03</p>
+  <h2 class="section-title">Simulador de Portas</h2>
+  <p class="section-sub">Alterne as entradas e observe a saída em tempo real.</p>
+
+  <div class="simulator">
+    <p class="sim-title">// SELECIONE UMA PORTA</p>
+    <div class="gate-selector" id="gate-selector"></div>
+    <div class="sim-body">
+      <div class="inputs-panel" id="inputs-panel"></div>
+      <div class="gate-svg-wrapper">
+        <svg id="gate-svg" width="120" height="100" viewBox="0 0 120 100">
+          <!-- dinamicamente preenchido -->
+        </svg>
+        <div class="gate-name-display" id="gate-name-display">AND</div>
+      </div>
+      <div class="output-panel">
+        <div class="output-bulb off" id="output-bulb">0</div>
+        <div class="output-label">SAÍDA (S)</div>
+      </div>
+    </div>
+    <div class="formula-box" id="formula-box">S = A · B</div>
+  </div>
+
+  <!-- Tabela verdade dinâmica -->
+  <div id="truth-table-container" style="margin-top:32px">
+    <h3 style="font-family:var(--mono);font-size:0.8rem;color:var(--muted);letter-spacing:2px;margin-bottom:12px">TABELA VERDADE</h3>
+    <div style="overflow-x:auto">
+      <table class="truth-table" id="truth-table-dyn"></table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SEÇÃO 4: ÁLGEBRA BOOLEANA ===================== -->
+<section class="section" id="algebra">
+  <p class="tag" style="font-size:11px; margin-bottom:8px;">MÓDULO 04</p>
+  <h2 class="section-title">Álgebra Booleana</h2>
+  <p class="section-sub">As leis que governam a simplificação de expressões lógicas.</p>
+
+  <div class="info-box">
+    A <strong>Álgebra Booleana</strong> (George Boole, 1854) é um sistema matemático para trabalhar com variáveis que assumem apenas dois valores. É a base teórica de todos os circuitos digitais.
+  </div>
+
+  <div class="law-grid">
+    <!-- gerado via JS -->
+  </div>
+
+  <!-- Simplificador interativo -->
+  <div style="margin-top:40px">
+    <h3 style="font-family:var(--mono);font-size:0.8rem;color:var(--muted);letter-spacing:2px;margin-bottom:16px">AVALIADOR DE EXPRESSÕES</h3>
+    <div class="simulator">
+      <p class="sim-title">// AVALIE UMA EXPRESSÃO BOOLEANA</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:20px">
+        <input id="bool-expr" type="text" value="(A AND B) OR (NOT A AND C)"
+          style="background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:var(--mono);padding:10px 14px;border-radius:6px;font-size:0.9rem;flex:1;min-width:200px;outline:none;"
+          placeholder="Ex: (A AND B) OR NOT C">
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+          <label style="font-family:var(--mono);font-size:0.75rem;color:var(--muted)">A:</label>
+          <button class="toggle-btn" id="ev-a" onclick="toggleEval('a')"></button>
+          <label style="font-family:var(--mono);font-size:0.75rem;color:var(--muted)">B:</label>
+          <button class="toggle-btn" id="ev-b" onclick="toggleEval('b')"></button>
+          <label style="font-family:var(--mono);font-size:0.75rem;color:var(--muted)">C:</label>
+          <button class="toggle-btn" id="ev-c" onclick="toggleEval('c')"></button>
+        </div>
+      </div>
+      <button class="btn" onclick="evaluateExpr()">▶ AVALIAR</button>
+      <div id="eval-result" style="margin-top:20px; font-family:var(--mono); font-size:1.5rem; display:none"></div>
+    </div>
+  </div>
+
+  <!-- De Morgan -->
+  <div style="margin-top:40px">
+    <h3 style="font-family:var(--mono);font-size:0.8rem;color:var(--muted);letter-spacing:2px;margin-bottom:16px">TEOREMAS DE DE MORGAN — VISUALIZAÇÃO</h3>
+    <div class="adder-section">
+      <div class="adder-box">
+        <h3>NOT(A AND B) = NOT A OR NOT B</h3>
+        <div id="demorgan1" style="font-family:var(--mono);font-size:0.9rem;color:var(--muted)">
+          Ajuste os valores abaixo:
+        </div>
+        <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap">
+          <div class="adder-input-group">
+            <label>A</label>
+            <button class="toggle-btn" id="dm1a" onclick="updateDeMorgan()"></button>
+          </div>
+          <div class="adder-input-group">
+            <label>B</label>
+            <button class="toggle-btn" id="dm1b" onclick="updateDeMorgan()"></button>
+          </div>
+        </div>
+        <div class="adder-result" id="dm1result">—</div>
+      </div>
+      <div class="adder-box">
+        <h3>NOT(A OR B) = NOT A AND NOT B</h3>
+        <div id="demorgan2" style="font-family:var(--mono);font-size:0.9rem;color:var(--muted)">
+          Ajuste os valores abaixo:
+        </div>
+        <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap">
+          <div class="adder-input-group">
+            <label>A</label>
+            <button class="toggle-btn" id="dm2a" onclick="updateDeMorgan()"></button>
+          </div>
+          <div class="adder-input-group">
+            <label>B</label>
+            <button class="toggle-btn" id="dm2b" onclick="updateDeMorgan()"></button>
+          </div>
+        </div>
+        <div class="adder-result" id="dm2result">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SEÇÃO 5: CIRCUITOS ===================== -->
+<section class="section" id="circuitos">
+  <p class="tag" style="font-size:11px; margin-bottom:8px;">MÓDULO 05</p>
+  <h2 class="section-title">Circuitos Digitais</h2>
+  <p class="section-sub">Combinando portas para criar funções complexas.</p>
+
+  <div class="info-box">
+    <strong>Circuitos Combinacionais</strong> — a saída depende apenas das entradas atuais.<br>
+    <strong>Circuitos Sequenciais</strong> — a saída depende das entradas <em>e</em> do estado anterior (memória).
+  </div>
+
+  <div class="adder-section" style="margin-bottom:40px">
+    <!-- Half Adder -->
+    <div class="adder-box">
+      <h3>MEIO SOMADOR (Half Adder)</h3>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:16px">Soma 2 bits: Soma = A XOR B, Carry = A AND B</p>
+      <div class="adder-inputs">
+        <div class="adder-input-group">
+          <label>A</label>
+          <button class="toggle-btn" id="ha-a" onclick="updateAdders()"></button>
+        </div>
+        <div class="adder-input-group">
+          <label>B</label>
+          <button class="toggle-btn" id="ha-b" onclick="updateAdders()"></button>
+        </div>
+      </div>
+      <div class="adder-result">
+        <div style="color:var(--muted);font-size:0.75rem;margin-bottom:4px">RESULTADO</div>
+        <div class="sum-display" id="ha-result">0 + 0 = 0₂ (0)</div>
+        <div style="color:var(--muted);font-size:0.75rem;margin-top:8px">
+          SUM: <span id="ha-sum">0</span> &nbsp;|&nbsp; CARRY: <span id="ha-carry">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full Adder -->
+    <div class="adder-box">
+      <h3>SOMADOR COMPLETO (Full Adder)</h3>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:16px">Soma 3 bits: A, B e Carry-In</p>
+      <div class="adder-inputs">
+        <div class="adder-input-group">
+          <label>A</label>
+          <button class="toggle-btn" id="fa-a" onclick="updateAdders()"></button>
+        </div>
+        <div class="adder-input-group">
+          <label>B</label>
+          <button class="toggle-btn" id="fa-b" onclick="updateAdders()"></button>
+        </div>
+        <div class="adder-input-group">
+          <label>CIN</label>
+          <button class="toggle-btn" id="fa-cin" onclick="updateAdders()"></button>
+        </div>
+      </div>
+      <div class="adder-result">
+        <div style="color:var(--muted);font-size:0.75rem;margin-bottom:4px">RESULTADO</div>
+        <div class="sum-display" id="fa-result">0+0+0 = 0₂ (0)</div>
+        <div style="color:var(--muted);font-size:0.75rem;margin-top:8px">
+          SUM: <span id="fa-sum">0</span> &nbsp;|&nbsp; COUT: <span id="fa-cout">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multiplexer -->
+  <div style="margin-bottom:40px">
+    <h3 style="font-family:var(--mono);font-size:0.8rem;color:var(--muted);letter-spacing:2px;margin-bottom:16px">MULTIPLEXADOR 4:1 (MUX)</h3>
+    <div class="circuit-container">
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:20px">Seleciona 1 de 4 entradas com base nos bits seletores S1 e S0.</p>
+      <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start">
+        <div>
+          <div style="font-family:var(--mono);font-size:0.75rem;color:var(--muted);letter-spacing:2px;margin-bottom:8px">ENTRADAS</div>
+          <div style="display:grid; grid-template-columns:auto auto; gap:10px 20px; align-items:center" id="mux-inputs">
+            <!-- gerado via JS -->
+          </div>
+        </div>
+        <div>
+          <div style="font-family:var(--mono);font-size:0.75rem;color:var(--muted);letter-spacing:2px;margin-bottom:8px">SELETORES</div>
+          <div style="display:flex; gap:16px" id="mux-selectors">
+            <!-- gerado via JS -->
+          </div>
+        </div>
+        <div style="flex:1; min-width:180px">
+          <div style="font-family:var(--mono);font-size:0.75rem;color:var(--muted);letter-spacing:2px;margin-bottom:8px">SAÍDA</div>
+          <div class="adder-result" id="mux-result" style="text-align:center">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flip-Flop SR -->
+  <div>
+    <h3 style="font-family:var(--mono);font-size:0.8rem;color:var(--muted);letter-spacing:2px;margin-bottom:16px">FLIP-FLOP SR (Biestável)</h3>
+    <div class="circuit-container">
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:20px">
+        Circuito sequencial. <strong>S (Set)</strong> = coloca Q em 1. <strong>R (Reset)</strong> = coloca Q em 0. Memória de 1 bit!
+      </p>
+      <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:center">
+        <div class="adder-input-group">
+          <label style="font-family:var(--mono);font-size:0.75rem;color:var(--muted)">S (SET)</label>
+          <button class="toggle-btn" id="sr-s"></button>
+        </div>
+        <div class="adder-input-group">
+          <label style="font-family:var(--mono);font-size:0.75rem;color:var(--muted)">R (RESET)</label>
+          <button class="toggle-btn" id="sr-r"></button>
+        </div>
+        <button class="btn" style="margin-top:0" onclick="triggerFlipFlop()">⚡ PULSO</button>
+        <div class="adder-result" style="flex:1; min-width:200px">
+          <div style="color:var(--muted);font-size:0.75rem">ESTADO</div>
+          <div style="display:flex; gap:20px; margin-top:8px">
+            <div>Q: <span id="ff-q" style="color:var(--accent);font-size:1.3rem;font-weight:700">0</span></div>
+            <div>Q̄: <span id="ff-qbar" style="color:var(--accent2);font-size:1.3rem;font-weight:700">1</span></div>
+          </div>
+          <div id="ff-status" style="color:var(--muted);font-size:0.75rem;margin-top:8px">Estado inicial</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SEÇÃO 6: QUIZ ===================== -->
+<section class="section" id="quiz">
+  <p class="tag" style="font-size:11px; margin-bottom:8px;">MÓDULO 06</p>
+  <h2 class="section-title">Quiz</h2>
+  <p class="section-sub">Teste seu conhecimento em lógica digital.</p>
+
+  <div class="quiz-container">
+    <div id="quiz-questions"></div>
+    <div class="quiz-score" id="quiz-score">
+      <div class="quiz-score-num" id="score-num">0/10</div>
+      <p id="score-msg">Resultado</p>
+      <button class="btn" onclick="restartQuiz()">↺ TENTAR NOVAMENTE</button>
+    </div>
+  </div>
+</section>
+
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
